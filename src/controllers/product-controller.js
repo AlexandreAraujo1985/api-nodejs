@@ -68,10 +68,10 @@ exports.post = (req, res, next) => {
 exports.put = (req, res, next) => {
     Product.findByIdAndUpdate(req.params.id, {
         $set: {
-            title: req.params.title,
-            description: req.params.description,
-            price: req.params.price,
-            slug: req.params.slug
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            slug: req.body.slug
         }
     }).then(data => {
         res.status(200).send({ mensagem: 'Produto alterado com sucesso!' });
